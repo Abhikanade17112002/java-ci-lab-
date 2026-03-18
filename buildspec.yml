@@ -1,1 +1,24 @@
-buildspec.yml
+version: 0.2
+
+phases:
+
+  install:
+    runtime-versions:
+      java: corretto17
+
+  pre_build:
+    commands:
+      - echo Installing Maven dependencies
+
+  build:
+    commands:
+      - echo Build started
+      - mvn clean package
+
+  post_build:
+    commands:
+      - echo Build finished
+
+artifacts:
+  files:
+    - target/*.jar
